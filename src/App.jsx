@@ -22,7 +22,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <button onClick={() => setAge( age + 1)}>age is {age}</button>
+        <button onClick={() => setAge((age) => age + 1)}>age is {age}</button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
