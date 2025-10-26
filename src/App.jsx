@@ -29,22 +29,11 @@ function App() {
           }
         />
 
-        <Route
-          path="/admin/dashboard"
-          element={
-            <AdminLayout>
-              <Dashboard />
-            </AdminLayout>
-          }
-        />
-        <Route
-          path="/admin/users"
-          element={
-            <AdminLayout>
-              <Users />
-            </AdminLayout>
-          }
-        />
+        {/* Admin routes */}
+      <Route element={<AdminLayout />}>
+  <Route path="dashboard" element={<Dashboard />} />
+  <Route path="users" element={<Users />} />
+</Route>
       </Routes>
     </BrowserRouter>
   );
