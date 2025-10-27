@@ -7,8 +7,17 @@ export default function NewsCard({name, deadline}) {
 
     useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
-     .then((res) => res.json())
+     .then((res) => {
+
+        if(!res.ok){
+            throw new Error("")
+        }
+       return res.json()
+    
+    })
       .then((data) => setUsers(data));
+
+      setInterval(()=> setNumber(number+5), 1000);
 
     })
 
@@ -17,13 +26,13 @@ export default function NewsCard({name, deadline}) {
         <h1>Headline</h1>
         <p>Mr. {name} decided to finish Next.js by {deadline}</p>
         <button onClick={() => setNumber(number => number + 1)}>number is {number}</button>
-        <p>{users.map((u)=> {
+        <div>{users.map((u)=> {
             return (
-                <div>
-{u.name}
+                <div key={u.id} >
+                    {u.name}
                 </div>
             )
-        })}</p>
+        })}</div>
         </>
     )
 }
